@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Keno Guesser - Generate lucky keno numbers with our beautiful and intuitive number picker">
+    <title>Keno Guesser | Lucky Number Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <div class="stars"></div>
+    
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">🎱</div>
+                <h1>Keno Guesser</h1>
+            </div>
+            <p class="subtitle">Your Lucky Number Generator</p>
+        </header>
+        
+        <div class="start-section" id="start-section">
+            <div class="welcome-card">
+                <h2>Ready to Win Big?</h2>
+                <p>Generate 20 lucky numbers from 1 to 80</p>
+                <button id="start-btn" class="btn btn-primary">
+                    <span>Start Playing</span>
+                    <div class="btn-glow"></div>
+                </button>
+            </div>
+        </div>
+        
+        <div id="game-panel" class="hidden">
+            <div class="info-card">
+                <p class="instruction">Click the button below to generate your lucky numbers!</p>
+            </div>
+            
+            <button id="guess-btn" class="btn btn-primary">
+                <span>🎲 Generate Numbers</span>
+                <div class="btn-glow"></div>
+            </button>
+            
+            <div id="numbers-display" class="numbers-grid"></div>
+            
+            <button id="refresh-btn" class="btn btn-secondary hidden">
+                <span>🔄 New Draw</span>
+            </button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
