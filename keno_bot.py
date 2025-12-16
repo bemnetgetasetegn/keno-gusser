@@ -26,7 +26,8 @@ def is_valid_betting_url(url):
     if not parsed.netloc.endswith('.bet'):
         return False
     try:
-        response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}, timeout=10)
+        root_url = f"{parsed.scheme}://{parsed.netloc}"
+        response = requests.get(root_url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}, timeout=10)
         return response.status_code == 200
     except:
         return False
