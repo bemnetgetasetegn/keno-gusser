@@ -3,6 +3,7 @@ import threading
 import time
 import requests
 import logging
+from urllib.parse import urlparse
 from dotenv import load_dotenv
 from flask import Flask
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo
@@ -21,7 +22,14 @@ HEALTH_CHECK_URL = os.getenv("RENDER_EXTERNAL_URL") or os.getenv("RAILWAY_STATIC
 def is_valid_betting_url(url):
     if not url.startswith('http'):
         url = 'https://' + url
-    return url.endswith('.bet')
+    parsed = urlparse(url)
+    if not parsed.netloc.endswith('.bet'):
+        return False
+    try:
+        response = requests.get(url, timeout=10)
+        return response.status_code == 200
+    except:
+        return False
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text("Please insert the URL of a betting site:")

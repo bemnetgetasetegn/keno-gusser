@@ -51,13 +51,12 @@
 body {
     font-family: var(--font-body);
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background: var(--gradient-background);
     color: white;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     position: relative;
+    padding: 2rem 0;
 }
 
 /* ========================================
@@ -136,7 +135,7 @@ body {
     text-align: center;
     max-width: 900px;
     width: 90%;
-    margin: 1rem auto;
+    margin: 0 auto;
     padding: var(--spacing-xl);
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(20px);
@@ -499,14 +498,10 @@ body {
 
 /* Tablet and below */
 @media (max-width: 768px) {
-    body {
-        overflow-x: hidden;
-    }
-
     .container {
         width: 95%;
         padding: var(--spacing-md);
-        margin: 0.5rem auto;
+        margin: 0 auto;
     }
 
     .header h1 {
